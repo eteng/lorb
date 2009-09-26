@@ -8,11 +8,25 @@
         <?php
 		require_once 'config/App_config.php';
 		require_once 'config/App_const.php';
-		
 		define('b',"<br />");
+		/**turn error reporting on**/
+		error_reporting(E_ALL);
+		
+		//site path constant
+		$site_path = realpath(dirname(__FILE__));
+		define('__SITE_PATH',$site_path);
+		
+		//include the boot file
+		include 'Mom/boot.php';
+		
+		//loadin gthe router 
+		//$registry->router = new router($registry);
+		
+		/*** set the path to the controllers directory ***/
+		$router->setPath (__SITE_PATH . 'controller');
         
         echo "welome to main page".b;
-		
+		echo __SITE_PATH.b;
 		//get the request url	
 		$url = $_SERVER['REQUEST_URI'];
 		//remove application url from the request url 
