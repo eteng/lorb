@@ -9,7 +9,7 @@ include __SITE_PATH .'/system/'.'registry.class.php';
 include __SITE_PATH .'/system/'.'router.class.php';
 
  /*** include the template class ***/
- include __SITE_PATH .'/system/'.'template.class.php';
+ //include __SITE_PATH .'/system/'.'template.class.php';
 
  /*** auto load model classes ***/
  function __autoload($class_name) {
