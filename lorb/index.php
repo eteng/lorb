@@ -20,7 +20,7 @@
 		include 'Mom/boot.php';
 		
 		//loadin gthe router 
-		//$registry->router = new router($registry);
+		$registry->router = new router($registry);
 		
 		/*** set the path to the controllers directory ***/
 		//$router->setPath (__SITE_PATH . 'controller');
