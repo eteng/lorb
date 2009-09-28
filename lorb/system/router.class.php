@@ -39,5 +39,6 @@ class router{
         /*** set the path ***/
         $this->path = $path;
 }
+}
 
  ?>

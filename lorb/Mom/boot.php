@@ -1,12 +1,12 @@
 <?
 /*** include the controller class ***/
- include __SITE_PATH .'/system/'.'controller_base.class.php';
+ //include __SITE_PATH .'/system/'.'controller_base.class.php';
 
  /*** include the registry class ***/
- include __SITE_PATH .'/system/'.'registry.class.php';
+include __SITE_PATH .'/system/'.'registry.class.php';
 
  /*** include the router class ***/
- include __SITE_PATH .'/system/'.'router.class.php';
+include __SITE_PATH .'/system/'.'router.class.php';
 
  /*** include the template class ***/
  include __SITE_PATH .'/system/'.'template.class.php';

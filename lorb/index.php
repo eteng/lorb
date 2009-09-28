@@ -23,7 +23,7 @@
 		//$registry->router = new router($registry);
 		
 		/*** set the path to the controllers directory ***/
-		$router->setPath (__SITE_PATH . 'controller');
+		//$router->setPath (__SITE_PATH . 'controller');
         
         echo "welome to main page".b;
 		echo __SITE_PATH.b;
