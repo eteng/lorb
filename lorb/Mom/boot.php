@@ -1,4 +1,4 @@
-<?
+<?php
 /*** include the controller class ***/
  //include __SITE_PATH .'/system/'.'controller_base.class.php';
 
@@ -15,14 +15,13 @@ include __SITE_PATH .'/system/'.'router.class.php';
  function __autoload($class_name) {
     $filename = strtolower($class_name).'.Model.php';
     $file = __SITE_PATH . '/model/' . $filename;
-
+    
     if (file_exists($file) == false)
     {
         return false;
     }
   include ($file);
 }
-
  /*** a new registry object ***/
  $registry = new Registry();
  

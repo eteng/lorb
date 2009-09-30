@@ -37,7 +37,6 @@
                         array('url'=>'/^post\/(?P<id>\d+\/edit)$/','controller' =>'post','view'=>'edit')
                         );
        // $pattern ='/^post\/(?P<id>\d+\/edit)$/';
-
        // $pattern ='/^(?P<comp>\w+)\/(?P<id>\d+)\/(?P<action>\w+)$/'; //for further development
        $params = array();
        foreach($routes as $urls =>$route)
@@ -48,7 +47,6 @@
               break;
           }
        }
-
         echo b."request = ".$url.b.b;
         dox($params);
 
