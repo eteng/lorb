@@ -11,6 +11,9 @@ include __SITE_PATH .'/system/'.'router.class.php';
  /*** include the template class ***/
  //include __SITE_PATH .'/system/'.'template.class.php';
 
+ /*** include the config class ***/
+include __SITE_PATH .'/Mom/'.'LorbConfig.php';
+
  /*** auto load model classes ***/
  function __autoload($class_name) {
     $filename = strtolower($class_name).'.Model.php';
@@ -24,7 +27,13 @@ include __SITE_PATH .'/system/'.'router.class.php';
 }
  /*** a new registry object ***/
  $registry = new Registry();
- 
+
+//testing the config
+echo LorbConfig::getInstance()->config('site');
+echo '<br />';
+
+
+
  /**creating the database reg obj***/
  //$registry->db = db::getInstance();
 
