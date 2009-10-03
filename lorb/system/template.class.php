@@ -44,8 +44,6 @@ function __construct($registry) {
  {
         $this->vars[$index] = $value;
  }
-
-
 function show($name) {
 	$path = __SITE_PATH . '/views' . '/' . $name . '.php';
 
@@ -61,7 +59,7 @@ function show($name) {
 		$$key = $value;
 	}
 
-	include ($path);               
+	include ($path);
 }
 
 
