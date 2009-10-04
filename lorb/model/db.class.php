@@ -4,7 +4,6 @@ class db{
 
 /*** Declare instance ***/
 private static $instance = NULL;
-
 /**
 *
 * the constructor is set to private so

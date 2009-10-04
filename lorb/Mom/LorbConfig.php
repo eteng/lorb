@@ -6,26 +6,49 @@
  * <e-t-e-n-g@hotmail.com>
  */
 class LorbConfig {
-   
-   private static $__instance = null;
-   private $__xmlconfig;
+
+    private static $__instance = null;
+    private $xconfig;
 
    /**Hidden magic function*/
-   private function  __construct() {
-       $this->__xmlconfig = simplexml_load_file(dirname(__FILE__).'/config.xml');
-   }
-   private function   __clone(){/**Empty Body*/}
-   
-   public static function getInstance(){
-       if(self::$__instance ===null){
-           $s = __CLASS__;
-           self::$__instance = new $s;
-       }
-       return self::$__instance;
-   }
-   public function config($param){
-     return $this->__xmlconfig->config[$param];
-   }
+    private function  __construct() {
+        $this->xconfig = simplexml_load_file(dirname(__FILE__).'/config.xml');
+    }
+    private function   __clone(){/**Empty Body*/}
+
+    public static function getInstance(){
+        if(self::$__instance ===null){
+            $s = __CLASS__;
+            self::$__instance = new $s;
+        }
+        return self::$__instance;
+    }
+    public function config($param){
+        return $this->xconfig->config[$param];
+    }
+    public function getDefaultDB(){
+        $default = $this->xconfig->config->dbconnection['default'];
+        return $this->getDB($default);
+    }
+    public function getDB($constring){
+        $flag = false;
+        $params = array();
+        foreach($this->xconfig->config->dbconnection->db as $db){
+            if(((string)$db['name'])==$constring){
+                $flag = true; 
+                foreach($db->children() as $dbparam => $dbval){
+                    $params[strval($dbparam)]  = strval($dbval);
+                }
+                /** @TODO: could be remove incase of grouping db connection by type*/
+                $params['type'] = strval($db['type']);
+                break;
+            }
+        }
+        if(!$flag){
+            throw new Exception("database connection name $constring not found!");
+        }
+        return $params;
+    }
 
 }
 ?>

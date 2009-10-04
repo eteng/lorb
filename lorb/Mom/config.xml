@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <lorb version="1.0">
 <config site="Lorb Webstyle System" domain="http://localhost/lorb/lorb">
-    <dbconnection>
+    <dbconnection  default='dbcon1'>
       <db name="dbcon1" type="mysql">
           <server>localhost</server>
           <username>root</username>
-          <dbname>lorbin</dbname>
+          <dbname>lorb</dbname>
           <password></password>
       </db>
       <db></db>

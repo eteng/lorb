@@ -13,8 +13,10 @@ define('__SITE_PATH',$site_path);
 //include the boot file
 include 'Mom/boot.php';
 
+//finding the domain
 $domain = LorbConfig::getInstance()->config('domain');
 
+print_r(LorbConfig::getInstance()->getDefaultDB());
 //loadin gthe router
 $registry->router = new router($registry);
 
@@ -26,6 +28,8 @@ $registry->router->setPath (__SITE_PATH . '/controller');
 
  /*** load the controller ***/
  $registry->router->loader();
+ 
+
 ?>
 <!--DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
