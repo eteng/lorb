@@ -1,14 +1,18 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <lorb version="1.0">
 <config site="Lorb Webstyle System" domain="http://localhost/lorb/lorb">
+    <application>
+        <baseUrl>lorb/lorb</baseUrl>
+    </application>
     <dbconnection  default='dbcon1'>
       <db name="dbcon1" type="mysql">
-          <server>localhost</server>
+          <host>localhost</host>
+          <port />
           <username>root</username>
           <dbname>lorb</dbname>
           <password></password>
       </db>
-      <db></db>
+      <db> </db>
     </dbconnection>
 </config>
 </lorb>

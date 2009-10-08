@@ -23,13 +23,9 @@ class router {
  }
 
  /**
- *
  * @set controller directory path
- *
  * @param string $path
- *
  * @return void
- *
  */
  function setPath($path) {
 
@@ -44,13 +40,9 @@ class router {
 
 
  /**
- *
  * @load the controller
- *
  * @access public
- *
  * @return void
- *
  */
  public function loader()
  {
@@ -86,19 +78,16 @@ class router {
 
 
  /**
- *
  * @get the controller
- *
  * @access private
- *
  * @return void
- *
  */
 private function getController() {
 
 	/*** get the route from the url ***/
 	$route = (empty($_GET['rt'])) ? '' : $_GET['rt'];
-
+    /**** Getting the route from the  url*/
+     LorbConfig::getConfig()->getDefaultDB();
 	if (empty($route))
 	{
 		$route = 'index';

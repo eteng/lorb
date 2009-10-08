@@ -16,7 +16,7 @@ class LorbConfig {
     }
     private function   __clone(){/**Empty Body*/}
 
-    public static function getInstance(){
+    public static function getConfig(){
         if(self::$__instance ===null){
             $s = __CLASS__;
             self::$__instance = new $s;
@@ -24,7 +24,10 @@ class LorbConfig {
         return self::$__instance;
     }
     public function config($param){
-        return $this->xconfig->config[$param];
+        return strval($this->xconfig->config[$param]);
+    }
+    public function appSetting($param){
+        return strval($this->xconfig->config->application->$param);
     }
     public function getDefaultDB(){
         $default = $this->xconfig->config->dbconnection['default'];

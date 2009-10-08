@@ -9,15 +9,10 @@ Class Registry {
  private $vars = array();
 
  /**
- *
  * @set undefined vars
- *
  * @param string $index
- *
  * @param mixed $value
- *
  * @return void
- *
  */
  public function __set($index, $value)
  {
@@ -25,13 +20,9 @@ Class Registry {
  }
 
  /**
- *
  * @get variables
- *
  * @param mixed $index
- *
  * @return mixed
- *
  */
  public function __get($index)
  {

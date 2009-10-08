@@ -1,5 +1,4 @@
 <?php //this is where its begins 
-require_once 'config/App_config.php';
 require_once 'config/App_const.php';
 
 define('b',"<br />");
@@ -14,16 +13,16 @@ define('__SITE_PATH',$site_path);
 include 'Mom/boot.php';
 
 //finding the domain
-$domain = LorbConfig::getInstance()->config('domain');
+$domain = LorbConfig::getConfig()->config('domain');
 
-print_r(LorbConfig::getInstance()->getDefaultDB());
+print_r(LorbConfig::getConfig()->appSetting('baseUrl'));
 //loadin gthe router
 $registry->router = new router($registry);
 
 /*** set the path to the controllers directory ***/
 $registry->router->setPath (__SITE_PATH . '/controller');
 
-         /*** load up the template ***/
+ /*** load up the template ***/
  $registry->template = new template($registry);
 
  /*** load the controller ***/
@@ -42,8 +41,8 @@ $registry->router->setPath (__SITE_PATH . '/controller');
 <?php
 
 
-//        echo LorbConfig::getInstance()->config('site').b;
-//        echo "welome to main page".b;
+//      echo LorbConfig::getInstance()->config('site').b;
+//      echo "welome to main page".b;
 //		echo __SITE_PATH.b;
 //		//get the request url
 //		$url = $_SERVER['REQUEST_URI'];
