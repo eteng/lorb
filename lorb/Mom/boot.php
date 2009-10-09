@@ -1,4 +1,7 @@
 <?php
+/****include the db model class****/
+include __SITE_PATH.'/model/'.'db.class.php';
+
 /*** include the config class ***/
 include __SITE_PATH .'/Mom/'.'LorbConfig.php';
 
@@ -29,7 +32,6 @@ include __SITE_PATH .'/system/'.'router.class.php';
  $registry = new Registry();
 
  /**creating the database reg obj***/
- //$registry->db = db::getInstance();
+ $registry->db = db::getDB(LorbConfig::getConfig()->getDefaultDB());
 
- //echo 'here';
 ?>

@@ -3,76 +3,50 @@
 class db{
 
 /*** Declare instance ***/
-private static $instance = NULL;
+private static  $instance = NULL;
 //private variable
-private $params;
-private $connString;
-
 /**
 * the constructor is set to private so
 * so nobody can create a new instance using new
 */
-private function __construct() {
+private function __construct($params) {
   /*** maybe set the db name here later ***/
-    if($this->params->type == 'mysql'){
-        $this->connString = 
-              "msql:host=".$this->params->host.";"
-              "dbname";
-    }
 }
-
 /**
 * Return DB instance or create intitial connection
 * @return object (PDO)
 * @access public
 */
-public static function getDB($params){
-
-if (!self::$instance)
-    {
-    self::$instance = new PDO("mysql:host=localhost;dbname=periodic_table", 'username', 'password');
-    self::$instance-> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+public static function getDB($param = null){
+    if(!is_null($param)){
+       self::$instance=null;
+    }    
+    if (!self::$instance)
+    {      
+        echo self::getConnString($param);
+         
+        $password = array_key_exists('password',$param) ? $param['password'] : "";
+        $username = array_key_exists('username',$param) ? $param['username'] : ""; 
+             
+        self::$instance = new PDO(self::getConnString($param),$username,$password);
+        self::$instance-> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
-return self::$instance;
+    return self::$instance;
 }
-private function connect_mySQL($DBUser, $DBPass, $DBName = false, $DBHost = false, $DBPort = false)
-{
-    
-    $DBNameEq = empty($DBName) ? '' : ";dbname=$DBName";
-
-    if (empty($DBHost)) $DBHost = 'localhost';
-
-    If ($DBHost[0] === '/')
-    {
-        $Connection = "unix_socket=$DBHost";
+public static function getConnString($params){
+  
+    $connString =null;
+    if(strcasecmp($params['type'],'mysql')==0){    
+        $connString = "mysql:host={$params['host']}";
+        if(isset($params['dbname']))
+         $connString .= ";dbname={$params['dbname']}";
+        if(isset($params['port']))
+         $connString .=";port={$params['port']}";                    
     }
-    else
-    {
-        if (empty($DBPort)) $DBPort = 3306;
-        $Connection = "host=$DBHost;port=$DBPort";
-    }
-
-    //======================
-
-    try
-    {
-        $dbh     = new PDO("mysql:$Connection$DBNameEq"
-                                  ,  $DBUser, $DBPass);
-    }
-    catch (PDOException $e)
-    {
-        return $e->getMessage();
-    }
-
-    return $dbh;
+    return $connString;
 }
-/**
-* Like the constructor, we make __clone private
-* so nobody can clone the instance
-*/
-private function __clone(){
+/**make __clone private so nobody can clone the instance */
+private function __clone(){}
 }
-
-} /*** end of class ***/
 
 ?>

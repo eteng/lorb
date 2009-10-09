@@ -4,15 +4,26 @@
     <application>
         <baseUrl>lorb/lorb</baseUrl>
     </application>
-    <dbconnection  default='dbcon1'>
-      <db name="dbcon1" type="mysql">
+    <dbconnection  default='off1'>
+      <db name="off1" type="mysql">
           <host>localhost</host>
           <port />
           <username>root</username>
           <dbname>lorb</dbname>
-          <password></password>
       </db>
-      <db> </db>
+      <db name='home1' type='mysql'> 
+          <host>localhost</host>
+          <port>3308</port>
+          <username>root</username>
+          <dbname>lorb</dbname>
+      </db>
+      <db name='home2' type='mysql'>
+          <host>localhost</host>
+          <port>10061</port>
+          <username>root</username>
+          <dbname>lorb</dbname>
+          <password>eteng</password>  
+      </db>  
     </dbconnection>
 </config>
 </lorb>

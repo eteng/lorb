@@ -1,7 +1,5 @@
 <?php
-/**
- * Description of LorbConfig
- *
+/**this class is used to query the mother configuration
  * @author etengomini.ubanga
  * <e-t-e-n-g@hotmail.com>
  */

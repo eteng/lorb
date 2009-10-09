@@ -21,7 +21,6 @@ class router {
  function __construct($registry) {
         $this->registry = $registry;
  }
-
  /**
  * @set controller directory path
  * @param string $path
@@ -37,8 +36,6 @@ class router {
 	/*** set the path ***/
  	$this->path = $path;
 }
-
-
  /**
  * @load the controller
  * @access public

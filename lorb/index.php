@@ -34,7 +34,7 @@ $registry->router->setPath (__SITE_PATH . '/controller');
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="shortcut icon" type="image/icon" href="<?php echo $domain;?>/favicon.ico">
+        <link rel="shortcut icon" type="image/icon" href="<?php //echo $domain;?>/favicon.ico">
         <title></title>
     </head>
     <body-->
