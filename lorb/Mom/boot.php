@@ -31,7 +31,9 @@ include __SITE_PATH .'/system/'.'router.class.php';
  /*** a new registry object ***/
  $registry = new Registry();
 
- /**creating the database reg obj***/
- $registry->db = db::getDB(LorbConfig::getConfig()->getDefaultDB());
+ /**creating the database reg object ***/
+ $registry->db = db::getDB(
+     LorbConfig::getConfig()->getDefaultDB()
+ );
 
 ?>
