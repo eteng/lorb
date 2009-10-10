@@ -148,7 +148,9 @@ private function matchRoute($request){
      $stst->bindValue(':com',$this->controllerID,PDO::PARAM_INT);
      $stst->execute();
      $pdo_resullt = $stst->fetchAll();
-     dox($pdo_resullt[0]);
+     //TODO: DEBUGING >> getController
+     (!isset($pdo_resullt[0])) or dox($pdo_resullt[0]);    
+     
 
 }
 
