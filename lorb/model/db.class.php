@@ -22,9 +22,7 @@ public static function getDB($param = null){
        self::$instance=null;
     }    
     if (!self::$instance)
-    {      
-        echo self::getConnString($param);
-         
+    {               
         $password = array_key_exists('password',$param) ? $param['password'] : "";
         $username = array_key_exists('username',$param) ? $param['username'] : ""; 
              

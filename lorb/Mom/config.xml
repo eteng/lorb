@@ -2,7 +2,9 @@
 <lorb version="1.0">
 <config site="Lorb Webstyle System" domain="http://localhost/lorb/lorb">
     <application>
-        <baseUrl>lorb/lorb</baseUrl>
+        <baseURL>/lorb/lorb/</baseURL>
+        <serverRoot></serverRoot>
+        <subdomain></subdomain>
     </application>
     <dbconnection  default='off1'>
       <db name="off1" type="mysql">

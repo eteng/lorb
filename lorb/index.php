@@ -1,4 +1,9 @@
-<?php //this is where its begins 
+<?php //this is where its begins
+function dox($params){
+    foreach($params as $key => $value){
+    echo $key." ==> ".$value."<br />";
+    }
+}
 require_once 'config/App_const.php';
 
 define('b',"<br />");
@@ -12,10 +17,13 @@ define('__SITE_PATH',$site_path);
 //include the boot file
 include 'Mom/boot.php';
 
+//making the library avaliable to the users
+$pathToLib =';'.__SITE_PATH.DS.'lib'.DS;
+set_include_path($pathToLib.get_include_path());
+
 //finding the domain
 $domain = LorbConfig::getConfig()->config('domain');
 
-print_r(LorbConfig::getConfig()->appSetting('baseUrl'));
 //loadin gthe router
 $registry->router = new router($registry);
 
@@ -44,11 +52,8 @@ $registry->router->setPath (__SITE_PATH . '/controller');
 //      echo LorbConfig::getInstance()->config('site').b;
 //      echo "welome to main page".b;
 //		echo __SITE_PATH.b;
-//		//get the request url
-//		$url = $_SERVER['REQUEST_URI'];
-//		//remove application url from the request url
-//		$url = str_replace(PS.AppURL.PS,'',$url);
-//        //Matching the url
+
+
 //        $routes = array(
 //                        array('url'=>'/^post\/(?P<id>\d+)$/','controller' =>'post','view'=>'show'),
 //                        array('url'=>'/^post\/(?P<id>\d+\/edit)$/','controller' =>'post','view'=>'edit')
@@ -67,11 +72,7 @@ $registry->router->setPath (__SITE_PATH . '/controller');
 //        echo b."request = ".$url.b.b;
 //        dox($params);
 //
-//        function dox($params){
-//            foreach($params as $key => $value){
-//				echo $key." ==> ".$value."<br />";
-//			}
-//        }
+
         ?>
     </body>
 </html>

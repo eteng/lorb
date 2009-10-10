@@ -10,11 +10,14 @@ class router {
  */
  private $path;
 
+ private $controllerID;
+
  private $args = array();
 
  public $file;
 
  public $controller;
+
 
  public $action;
 
@@ -80,31 +83,39 @@ class router {
  * @return void
  */
 private function getController() {
-
-	/*** get the route from the url ***/
-	$route = (empty($_GET['rt'])) ? '' : $_GET['rt'];
-    /**** Getting the route from the  url*/
-     LorbConfig::getConfig()->getDefaultDB();
-	if (empty($route))
-	{
-		$route = 'index';
-	}
+    /**** Getting the request from the  url*/
+    $request =  $this->parseRequest();   
+	if (empty($request))
+		 $request = 'index';  //front
 	else
-	{
-		/*** get the parts of the route ***/
-		$parts = explode('/', $route);
-		$this->controller = $parts[0];
-		if(isset( $parts[1]))
-		{
-			$this->action = $parts[1];
-		}
-	}
+	{   /*** get the parts of the request ***/
 
+		$parts = explode('/', $request);
+		$this->controller = $parts[0]; 
+		if(isset( $parts[1]))
+			$this->action = $parts[1];
+       //checking registered componest
+       $sql = "SELECT * FROM  components WHERE com_name = :contx";
+
+       $stst =$this->registry->db->prepare($sql);
+       $stst->bindValue(':contx',$this->controller,PDO::PARAM_STR);
+       $stst->execute();
+       $pdo_resullt = $stst->fetch();
+       
+       //checking if the controller is registered to the database
+       if(!isset($pdo_resullt['com_id']))
+           $this->controller = "";
+       else
+            $this->controllerID = $pdo_resullt['com_id'];
+       //TODO: DEBUGING >> getController
+       //print_r($pdo_resullt);
+        $this->matchRoute($request);
+	}    
 	if (empty($this->controller))
 	{
 		$this->controller = 'index';
 	}
-
+    $this->matchRoute($request);
 	/*** Get action ***/
 	if (empty($this->action))
 	{
@@ -114,6 +125,33 @@ private function getController() {
 	/*** set the file path ***/
 	$this->file = $this->path .'/'. $this->controller . 'Controller.php';
 }
+private function parseRequest(){
+    //getting the URL
+    $requrl = $_SERVER['REQUEST_URI'];
+    //TODO: DEBUGING >> parseRequest
+    //echo 'DE: REQUEST IS:'.$requrl;
+    //remove application url from the request url
+    $count = 0;  //intialise the counter to 0;
+    $requrl = str_replace(LorbConfig::getConfig()->appSetting('baseURL'),"",$requrl,$count);
+    /*TODO: there must be a problem to get more than one match
+    could be resolve using matching */
+    if($count > 1){
+        throw New Exception("URL Parse Error");
+    }
+    return $requrl;
+}
+private function matchRoute($request){
+    
+     $sql = "SELECT * FROM routes WHERE com_id = :com ";
+
+     $stst =$this->registry->db->prepare($sql);
+     $stst->bindValue(':com',$this->controllerID,PDO::PARAM_INT);
+     $stst->execute();
+     $pdo_resullt = $stst->fetchAll();
+     dox($pdo_resullt[0]);
+
+}
+
 
 
 }
