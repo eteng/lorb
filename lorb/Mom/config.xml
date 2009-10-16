@@ -28,4 +28,12 @@
       </db>  
     </dbconnection>
 </config>
+<include>
+    <js>
+        <lib name="dojo" version="1.3.2"  />
+        <lib name="jquery" version="1.3.2" />
+    </js>
+    <ajax></ajax>
+    <css></css>
+</include>
 </lorb>

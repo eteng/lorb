@@ -35,7 +35,9 @@ $registry->router->setPath (__SITE_PATH . '/controller');
 
  /*** load the controller ***/
  $registry->router->loader();
- 
+
+ //DOJO toolkit
+ //SCRIPT TYPE="text/javascript" SRC="dojo/dojo.js"></SCRIPT>
 
 ?>
 <!--DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
