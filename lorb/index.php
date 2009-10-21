@@ -54,8 +54,6 @@ $registry->router->setPath (__SITE_PATH . '/controller');
 //      echo LorbConfig::getInstance()->config('site').b;
 //      echo "welome to main page".b;
 //		echo __SITE_PATH.b;
-
-
 //        $routes = array(
 //                        array('url'=>'/^post\/(?P<id>\d+)$/','controller' =>'post','view'=>'show'),
 //                        array('url'=>'/^post\/(?P<id>\d+\/edit)$/','controller' =>'post','view'=>'edit')
@@ -71,10 +69,6 @@ $registry->router->setPath (__SITE_PATH . '/controller');
 //              break;
 //          }
 //       }
-//        echo b."request = ".$url.b.b;
-//        dox($params);
-//
-
         ?>
     </body>
 </html>
