@@ -10,7 +10,7 @@ function getUrl($params){
    }
    return $result;
 }
-function _empty() {
+function isBarren() {
     foreach(func_get_args() as $args) {
         if( !is_numeric($args) ) {
             if( is_array($args) ) { // Is array?
