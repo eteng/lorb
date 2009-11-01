@@ -15,30 +15,19 @@ private $registry;
 private $vars = array();
 
 /**
- *
  * @constructor
- *
  * @access public
- *
  * @return void
- *
  */
 function __construct($registry) {
 	$this->registry = $registry;
 
 }
-
-
- /**
- *
+/**
  * @set undefined vars
- *
  * @param string $index
- *
  * @param mixed $value
- *
  * @return void
- *
  */
  public function __set($index, $value)
  {
@@ -52,7 +41,6 @@ function show($name) {
 		throw new Exception('Template not found in '. $path);
 		return false;
 	}
-
 	// Load variables
 	foreach ($this->vars as $key => $value)
 	{

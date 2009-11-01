@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <lorb version="1.0">
-<config site="Lorb Webstyle System" domain="http://localhost/lorb/lorb">
+<config lang="en" site="Lorb Webstyle System" domain="http://localhost/lorb/lorb">
     <application>
         <baseURL>/lorb/lorb/</baseURL>
         <serverRoot></serverRoot>

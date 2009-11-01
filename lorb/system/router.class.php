@@ -75,8 +75,6 @@ class router {
 	/*** run the action ***/
 	$controller->$action();
  }
-
-
  /**
  * @get the controller
  * @access private

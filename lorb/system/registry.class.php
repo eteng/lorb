@@ -7,7 +7,6 @@ Class Registry {
  * @access private
  */
  private $vars = array();
-
  /**
  * @set undefined vars
  * @param string $index
@@ -18,7 +17,6 @@ Class Registry {
  {
         $this->vars[$index] = $value;
  }
-
  /**
  * @get variables
  * @param mixed $index

@@ -13,7 +13,6 @@ class LorbConfig {
         $this->xconfig = simplexml_load_file(dirname(__FILE__).'/config.xml');
     }
     private function   __clone(){/**Empty Body*/}
-
     public static function getConfig(){
         if(self::$__instance ===null){
             $s = __CLASS__;

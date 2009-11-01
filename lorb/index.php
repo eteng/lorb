@@ -49,8 +49,6 @@ $registry->router->setPath (__SITE_PATH . '/controller');
     </head>
     <body-->
 <?php
-
-
 //      echo LorbConfig::getInstance()->config('site').b;
 //      echo "welome to main page".b;
 //		echo __SITE_PATH.b;
