@@ -4,7 +4,6 @@ class router {
  * @the registry
  */
  private $registry;
-
  /*
  * @the controller path
  */
@@ -17,7 +16,6 @@ class router {
  public $file;
 
  public $controller;
-
 
  public $action;
 
@@ -55,7 +53,6 @@ class router {
 		$this->file = $this->path.'/error404.php';
                 $this->controller = 'error404';
 	}
-
 	/*** include the controller ***/
 	include $this->file;
 

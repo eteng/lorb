@@ -2,7 +2,6 @@
 /* 
  * A temporary hold for the admin login page.
  */
-
 ?>
  <head>
     <title>Lorb Administration</title>
