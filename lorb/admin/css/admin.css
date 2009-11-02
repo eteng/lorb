@@ -1,0 +1,13 @@
+/* 
+    Document   : admin
+    Created on : Oct 16, 2009, 6:38:40 PM
+    Author     : etengomini.ubanga
+    Description:
+        Purpose of the stylesheet follows.
+*/
+body{background:#555;}
+.login{width:300px;border:1px solid; text-align:left;padding:0px 0px 100px 100px;background:#666;}
+.login h2{background:#433;color:#fff;font-family:validi, helvertica;border:1px inset #000; border-right:none;}
+.login form{text-align:left;}
+.login form p input{display:block}
+.submit{background:#333;color:#fff;width:200px;border:1px outset #000}
