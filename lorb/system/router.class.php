@@ -116,15 +116,12 @@ private function getController() {
 	{
 		$this->action = 'index';
 	}
-
 	/*** set the file path ***/
 	$this->file = $this->path .'/'. $this->controller . 'Controller.php';
 }
 private function parseRequest(){
     //getting the URL
     $requrl = $_SERVER['REQUEST_URI'];
-    //TODO: DEBUGING >> parseRequest
-    //echo 'DE: REQUEST IS:'.$requrl;
     //remove application url from the request url
     $count = 0;  //intialise the counter to 0;
     $requrl = str_replace(LorbConfig::getConfig()->appSetting('baseURL'),"",$requrl,$count);
@@ -136,15 +133,16 @@ private function parseRequest(){
     return $requrl;
 }
 private function matchRoute($request){
-    
-     $sql = "SELECT * FROM routes WHERE com_id = :com ";
 
+    /* $sql = "SELECT * FROM routes WHERE com_id = :com ";
      $stst =$this->registry->db->prepare($sql);
      $stst->bindValue(':com',$this->controllerID,PDO::PARAM_INT);
      $stst->execute();
      $pdo_resullt = $stst->fetchAll();
      //TODO: DEBUGING >> getController
-     (!isset($pdo_resullt[0])) or dox($pdo_resullt[0]);    
+     (!isset($pdo_resullt[0])) or dox($pdo_resullt[0]);
+     *
+     */
      
 
 }

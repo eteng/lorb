@@ -13,11 +13,15 @@ class Alice {
             $this->__instance = new Alice;
       return $this->__instance;
   }
-  public function  sql($sql){
+  public function sql($sql){
      if (array_key_exists($sql,$this->sqlStrings))
         return $this->sqlStrings[$sql];
      else
         return false;
+  }
+  public function addSQLString($key,$string){
+      //@todo:add validation to key track of keys.
+     $this->sqlStrings[$key] = $string;
   }
   private function __construct();
   private function __clone(){}

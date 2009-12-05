@@ -1,0 +1,35 @@
+
+ //DOJO toolkit
+ //SCRIPT TYPE="text/javascript" SRC="dojo/dojo.js"></SCRIPT>
+
+?>
+<!--DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="shortcut icon" type="image/icon" href="<?php //echo $domain;?>/favicon.ico">
+        <title></title>
+    </head>
+    <body-->
+<?php
+//      echo LorbConfig::getInstance()->config('site').b;
+//      echo "welome to main page".b;
+//		echo __SITE_PATH.b;
+//        $routes = array(
+//                        array('url'=>'/^post\/(?P<id>\d+)$/','controller' =>'post','view'=>'show'),
+//                        array('url'=>'/^post\/(?P<id>\d+\/edit)$/','controller' =>'post','view'=>'edit')
+//                        );
+//       // $pattern ='/^post\/(?P<id>\d+\/edit)$/';
+//       // $pattern ='/^(?P<comp>\w+)\/(?P<id>\d+)\/(?P<action>\w+)$/'; //for further development
+//       $params = array();
+//       foreach($routes as $urls =>$route)
+//       {
+//          if(preg_match($route['url'],$url,$matches))
+//          {
+//              $params = array_merge($params,$matches);
+//              break;
+//          }
+//       }
+        ?>
+    </body>
+</html>

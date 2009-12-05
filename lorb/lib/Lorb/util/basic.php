@@ -10,6 +10,10 @@ function getUrl($params){
    }
    return $result;
 }
+/**a funtion that checks if a passed argument is empty
+ *  Empty is when an array or String length = 0,null or unset
+ * @return Boolean true if the passsed argument is empty
+ */
 function isBarren() {
     foreach(func_get_args() as $args) {
         if( !is_numeric($args) ) {

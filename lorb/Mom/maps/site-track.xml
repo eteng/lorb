@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Document   : services.xml
+    Created on : December 3, 2009, 11:41 AM
+    Author     : etengnomini ubanga <e-t-e-n-g@hotmail.com>
+    Description:
+        Purpose of the document follows help the user define the rout matches Here.
+-->
+<comps>
+    <component name='blog'>
+        <error type='404' />
+    </component>
+    <component name='java'>
+        <error type='406' />
+    </component>
+</comps>
+
