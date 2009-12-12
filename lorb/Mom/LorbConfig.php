@@ -1,6 +1,6 @@
 <?php
 /**this class is used to query the mother configuration
- * @author etengomini.ubanga
+ * @author eteng omini ubanga
  * <e-t-e-n-g@hotmail.com>
  */
 class LorbConfig {
@@ -33,7 +33,8 @@ class LorbConfig {
     public function getDB($constring){
         $flag = false;
         $params = array();
-        foreach($this->xconfig->config->dbconnection->db as $db){
+        //@TODO: Advance this concept using xpath technology to query thus saving memory ;
+         foreach($this->xconfig->config->dbconnection->db as $db){
             if(((string)$db['name'])==$constring){
                 $flag = true; 
                 foreach($db->children() as $dbparam => $dbval){

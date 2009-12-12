@@ -6,7 +6,7 @@
         <serverRoot></serverRoot>
         <subdomain></subdomain>
     </application>
-    <dbconnection  default='off1'>
+    <dbconnection default='off1'>
       <db name="off1" type="mysql">
           <host>localhost</host>
           <port />

@@ -1,7 +1,4 @@
-<?php //this is where its begins
-
-require_once 'config/App_const.php';
-
+<?php 
 /**turn error reporting on**/
 error_reporting(E_ALL);
 
@@ -10,7 +7,7 @@ $site_path = realpath(dirname(__FILE__));
 define('__SITE_PATH',$site_path);
 
 //making the library avaliable to the users
-$pathToLib =';'.__SITE_PATH.DS.'lib'.DS;
+$pathToLib =';'.__SITE_PATH.DIRECTORY_SEPARATOR.'lib'.DIRECTORY_SEPARATOR;
 set_include_path($pathToLib.get_include_path());
 
 //include the boot file
@@ -20,7 +17,10 @@ include 'Mom/boot.php';
 //$registry->router->setPath (__SITE_PATH . '/controller');
 
 /*** load the controller ***/
-$registry->front->run_main();
+$registry->front->start();
+
+echo "<br />\n".memory_get_peak_usage();
+echo "<br />\n".memory_get_peak_usage(true);
 
 ?>
  

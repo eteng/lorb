@@ -4,7 +4,7 @@ class db{
 
 /*** Declare instance ***/
 private static  $instance = NULL;
-//private variable
+
 /**
 * the constructor is set to private so
 * so nobody can create a new instance using new

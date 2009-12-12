@@ -10,6 +10,8 @@ class FrontController {
 
   protected $controller;
   
+  protected $process;
+  
   protected $url;
 
  /*
@@ -27,29 +29,29 @@ class FrontController {
 		 $request = 'index';  //front
 	else
 	{   /*** get the parts of the request ***/
-      
 		$parts = explode('/', $request);
 		$this->controller = $parts[0];
 
 		if(isset( $parts[1]))
 			$this->action = $parts[1];
-
         $modu = $this->registry->maps->getModuleByName($this->controller);
+        print_r($modu);
         if(!isBarren($modu)){
             $this->matchRoute($request);
         }else{
+            // register Page Not found Event
             echo "<h1>Page Error</h1> Page not found";
         }      
 	}
-	if (empty($this->controller))
+	if (isBarren($this->controller))
 	{
 		$this->controller = 'index';
 	}
     $this->matchRoute($request);
-	/*** Get action ***/
-	if (empty($this->action))
+	/*** Get trailers after controller ***/
+	if (isBarren($this->process))
 	{
-		$this->action = 'index';
+		$this->process = 'index';
 	}
 	/*** set the file path ***/
 	//$this->file = $this->path .'/'. $this->controller . 'Controller.php';
@@ -75,7 +77,7 @@ private function parseRequest(){
  private function matchRoute($request){
     
  }
- public function run_main(){
+ public function start(){
     $this->HaltRequest();
  }
 }

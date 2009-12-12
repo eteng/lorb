@@ -2,16 +2,32 @@
 <!--
     Document   : services.xml
     Created on : December 3, 2009, 11:41 AM
-    Author     : etengnomini ubanga <e-t-e-n-g@hotmail.com>
+    Author     : eteng omini ubanga <e-t-e-n-g@hotmail.com>
     Description:
         Purpose of the document follows help the user define the rout matches Here.
 -->
 <comps>
-    <component name='blog'>
+    <nav name='blog'>
         <error type='404' />
-    </component>
-    <component name='java'>
+    </nav>
+    <nav name='java'>
         <error type='406' />
-    </component>
+        <path id='Hq' method=''>
+            <get id='trigger' require='true' type='pattern' />
+            <get id='action' required='flase' type='string' />
+        </path>
+        <path id='register' method='register' >
+            <post id='mydata' reqired='true' />
+        </path>
+    </nav>
+	<nav name="tutorial">
+		<path id="php" method="" />
+		<path id="xml" method="" />
+		<path id="java" method="" >
+			<var id="page" type='float|string|int|number|pattern' />
+		</path>
+		<path id="cpp" method="" />
+		<path id="c" method="" />		
+	</nav>
 </comps>
 

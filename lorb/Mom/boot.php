@@ -1,4 +1,5 @@
 <?php
+
 /****include the db model class****/
 include __SITE_PATH.'/model/'.'db.class.php';
 
@@ -9,7 +10,7 @@ include __SITE_PATH .'/Mom/'.'LorbConfig.php';
 include __SITE_PATH .'/Mom/'.'Maps.php';
 
 /*** include the controller class ***/
-include __SITE_PATH .'/system/'.'controller_base.class.php';
+include __SITE_PATH .'/system/'.'Controller.php';
 
 /*** include the registry class ***/
 include __SITE_PATH .'/system/'.'registry.class.php';

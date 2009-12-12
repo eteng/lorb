@@ -1,10 +1,8 @@
 <?php
 
-Abstract Class baseController {
+abstract class Controller {
 
-/*
- * @registry object
- */
+/* * @registry object */
 protected $registry;
 
 function __construct($registry) {
@@ -14,6 +12,7 @@ function __construct($registry) {
  * @all controllers must contain an index method
  */
 abstract function index();
+
 }
 
 ?>

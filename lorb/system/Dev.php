@@ -1,7 +1,7 @@
 <?php
 /**
  * Description of Dev
- * @author etengomini.ubanga
+ * @author eteng omini ubanga
  * e-t-e-n-g@hotmail.com
  */
 class Dev {
