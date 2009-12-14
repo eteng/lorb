@@ -17,10 +17,10 @@ class FrontController {
  /*
  * @the registry
  */
- private $registry;
+ private $reg;
    //@TODO: coupling to tight need to release;
   public function  __construct($registry) {
-        $this->registry = $registry;
+        $this->reg = $registry;
   }
   private function HaltRequest(){
     
@@ -33,9 +33,16 @@ class FrontController {
 		$this->controller = $parts[0];
 
 		if(isset( $parts[1]))
-			$this->action = $parts[1];
-        $modu = $this->registry->maps->getModuleByName($this->controller);
+			$this->process = $parts[1];
+        $modu = $this->reg->maps->getModuleByName($this->controller);
         print_r($modu);
+
+        if(is_array($modu)){
+           foreach($modu as $key => $fine){
+               echo $key." => ".$fine."<br />\n";
+           }
+        }
+
         if(!isBarren($modu)){
             $this->matchRoute($request);
         }else{
@@ -65,7 +72,7 @@ private function parseRequest(){
     $requrl = $_SERVER['REQUEST_URI'];
     //remove application url from the request url
     $count = 0;  //intialise the counter to 0;
-    $requrl = str_replace($this->registry->lorbConfig->appSetting('baseURL'),"",$requrl,$count);
+    $requrl = str_replace($this->reg->cfg->appSetting('baseURL'),"",$requrl,$count);
     /*TODO: there must be a problem to get more than one match
     could be resolve using matching */
     if($count > 1){
