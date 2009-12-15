@@ -1,26 +1,12 @@
 <?php
 
-
-$string = <<<XML
-<a xmlns:b="http://www.google.com">
- <foo name="one" game="lonely">1</foo>
-</a>
-XML;
-$dom = new domDocument();
-$dom->loadXML($string);
-//$xml = simplexml_load_string($string);
-$xml = simplexml_import_dom($dom);
-$back = XMLToArray($xml->foo);
-print_r($back);
-
-
-
+class ArrayHelpers{
 /**
 *this function converts simpleXMLElement collection to Array
 * Colloection
 *@param SimpleXMLElement xml: a coloction of simpleXMLElement 
 */
-function XMLToArray(SimpleXMLElement $xml){
+static function XMLToArray(SimpleXMLElement $xml){
   $ar_col = array();
   $ark  = $xml->attributes();
   foreach($ark as $a => $b ){
@@ -28,9 +14,16 @@ function XMLToArray(SimpleXMLElement $xml){
   }
   return $ar_col;
 }
-echo "<br />\n".memory_get_peak_usage();
-echo "<br />\n".memory_get_peak_usage(true);
-echo "<br />\n".memory_get_usage();
+
+static function XMLElemToArray(SimpleXMLElement $xml, $depth=-1){
+	
+	$x = self::XMLToArray($xml);
+	foreach($xml->children() as $child){		
+		$x[$child->getName()] = self::XMLElemToArray($child);
+	}
+	return $x;
+}
 
 
+}
 ?>

@@ -13,7 +13,7 @@
     <nav name='java'>
         <error type='406' />
         <path id='Hq' method=''>
-            <get id='trigger' require='true' type='pattern' />
+            <get id='trigger' required='true' type='pattern' />
             <get id='action' required='flase' type='string' />
         </path>
         <path id='register' method='register' >

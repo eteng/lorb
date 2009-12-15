@@ -11,7 +11,7 @@ $pathToLib =';'.__SITE_PATH.DIRECTORY_SEPARATOR.'lib'.DIRECTORY_SEPARATOR;
 set_include_path($pathToLib.get_include_path());
 
 //include the boot file
-include 'Mom/boot.php';
+include 'sys/boot.php';
 
 /*** set the path to the controllers directory ***/
 //$registry->router->setPath (__SITE_PATH . '/controller');
@@ -19,8 +19,10 @@ include 'Mom/boot.php';
 /*** load the controller ***/
 $registry->front->start();
 
-echo "<br />\n".memory_get_peak_usage();
-echo "<br />\n".memory_get_peak_usage(true);
+echo "<br />\n Memory peak usage:".memory_get_peak_usage();
+echo "<br />\n Memory peak usage: ".memory_get_peak_usage(true);
+echo "<br />\n Memory usage :".memory_get_usage();
+echo "<br />\n Memory usage:".memory_get_usage(true);
 
 ?>
  
