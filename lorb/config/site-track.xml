@@ -10,7 +10,7 @@
     <nav name='blog'>
         <error type='404' />
     </nav>
-    <nav name='java'>
+    <nav name='java' class=''>
         <error type='406' />
         <path id='Hq' method=''>
             <get id='trigger' required='true' type='pattern' />
@@ -20,7 +20,7 @@
             <post id='mydata' reqired='true' />
         </path>
     </nav>
-	<nav name="tutorial">
+	<nav name="tutorial" class='tutorial'>
 		<path id="php" method="" />
 		<path id="xml" method="" />
 		<path id="java" method="" >

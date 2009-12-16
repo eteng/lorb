@@ -6,7 +6,7 @@ class ArrayHelpers{
 * Colloection
 *@param SimpleXMLElement xml: a coloction of simpleXMLElement 
 */
-static function XMLToArray(SimpleXMLElement $xml){
+static function XMLAttrToArray(SimpleXMLElement $xml){
   $ar_col = array();
   $ark  = $xml->attributes();
   foreach($ark as $a => $b ){
@@ -15,11 +15,14 @@ static function XMLToArray(SimpleXMLElement $xml){
   return $ar_col;
 }
 
-static function XMLElemToArray(SimpleXMLElement $xml, $depth=-1){
+static function XMLElemToArray(SimpleXMLElement $xml,$depth = -1){
 	
-	$x = self::XMLToArray($xml);
-	foreach($xml->children() as $child){		
-		$x[$child->getName()] = self::XMLElemToArray($child);
+	$x = self::XMLAttrToArray($xml);	
+	if($depth != 0){
+	   $depth --;
+	   foreach($xml->children() as $child){		
+		 $x[$child->getName()] = self::XMLElemToArray($child,$depth);
+	   }
 	}
 	return $x;
 }
