@@ -14,7 +14,6 @@ class FrontController {
   protected $process;
   
   protected $url;
-
  /*
  * @the registry
  */
@@ -31,17 +30,15 @@ class FrontController {
 	else
 	{   /*** get the parts of the request ***/
 		$parts = explode('/', $request);
-		$this->controller = $parts[0];
+		$this->controller = strtolower($parts[0]);
 
 		if(isset( $parts[1]))
 			$this->process = $parts[1];
-        $modul = $this->reg->maps->getModuleByName($this->controller);
-			
+        $modul = $this->reg->maps->getModuleByName($this->controller);			
         if(!isBarren($modul)){
 		   // convert the simple match to array
 		   $this->url = $this->processMatch($modul);
 		   $this->dispatch();
-           //$this->matchRoute($request);
         }else{
             // register Page Not found Event
             echo "<h1>Page Error</h1> Page not found";
@@ -82,25 +79,32 @@ private function parseRequest(){
     
  }
  public function dispatch(){
-    $com_path = "sys/comp/".$this->url['class'].".php";
-	if(file_exists($com_path))
-	 include ($com_path);
-	else
-	 die('Controller no Found');
+     
+    if(isset ($this->url['class'])){
+        $com_path = "sys/comp/".$this->url['class'].".php";
+        $clasName = $this->url['class'];
+    }else{
+        $com_path = "sys/comp/".$this->url['name'].".php";
+        $clasName = $this->url['name'];
+    }//else
+	if(file_exists($com_path)){
+	  include ($com_path);
+    }else{
+     echo $com_path;
+	 die('<h1>Controller Not Found</h1>');
+    }
 	//declaring class
-	$contr = new $this->url['class'];
+	$contr = new $clasName;
 	if ($contr instanceof comp){
 		$contr->init();
 	}
-	//what else could it be..
-	
+	//@TODO:what else could it be..
  }
  private function processMatch($map){
     $line = array();
 	foreach($map as $k => $v){
 		if($v instanceof SimpleXMLElement){
-			$line = ArrayHelpers::XMLElemToArray( $v );
-			
+			$line = ArrayHelpers::XMLElemToArray( $v );			
 		}
 	}
 	return $line;

@@ -19,10 +19,10 @@ include 'sys/boot.php';
 /*** load the controller ***/
 $registry->front->start();
 
-echo "<br />\n Memory peak usage:".memory_get_peak_usage();
-echo "<br />\n Memory peak usage: ".memory_get_peak_usage(true);
-echo "<br />\n Memory usage :".memory_get_usage();
-echo "<br />\n Memory usage:".memory_get_usage(true);
+//echo "<br />\n Memory peak usage:".memory_get_peak_usage();
+//echo "<br />\n Memory peak usage: ".memory_get_peak_usage(true);
+//echo "<br />\n Memory usage :".memory_get_usage();
+//echo "<br />\n Memory usage:".memory_get_usage(true);
 
 ?>
  

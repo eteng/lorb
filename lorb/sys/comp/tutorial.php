@@ -6,7 +6,7 @@ require_once 'sys/comp.php';
  * @author Eteng Omini <e-t-e-n-g@hotmail.com> 
  */
 class tutorial extends comp{
-
+    
     function init(){
         
         echo "<h2>Welcome to Tutorialx</h2>";
