@@ -13,19 +13,8 @@
           <username>root</username>
           <dbname>lorb</dbname>
       </db>
-      <db name='home1' type='mysql'> 
-          <host>localhost</host>
-          <port>3308</port>
-          <username>root</username>
-          <dbname>lorb</dbname>
-      </db>
-      <db name='home2' type='mysql'>
-          <host>localhost</host>
-          <port>10061</port>
-          <username>root</username>
-          <dbname>lorb</dbname>
-          <password>eteng</password>  
-      </db>  
+      <db name='hm1' type='mysql' host='localhost' port='3308' username='root' dbname='lorb' />
+      <db name='hm2' type='mysql' host='localhost' port='10061' username='root' dbname='lorb' password='eteng'/>
     </dbconnection>
 </config>
 <include>

@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>login</title>
+</head>
+<body>
+<!--BLOCK-->
+<div>
+    <script type="text/javascript">
+function ShowScreenshot(screenshotimage,screenshotwidth,screenshotheight){
+	screenshotleft = ((screen.width-screenshotwidth)-20)/2;
+	screenshottop = ((screen.height-screenshotheight)-20)/2;
+	screenshotwin = window.open(screenshotimage,'screenshot','width='+(screenshotwidth+20)+',height='+(screenshotheight+20)+',left='+screenshotleft+',top='+screenshottop+',scrollbars=no,resizable')
+        return false;
+}
+
+    </script>
+<form method="post" action="tutorial/login"
+ name="userLogin">
+    <span>user name :</span>
+    <input type='text' name="username">
+    <span>password :</span>
+    <a href="loginHelp">need help?</a>
+    <input type="password" name="userkey">
+    <input type="checkbox" name="remember">
+    <span><a onclick="ShowScreenshot('http://www.google.com',800,600)" href="pops/stayLogin">stay logged in</a></span>
+</form>
+</div>
+<!--BLOCK-->
+</body>
+</html>
