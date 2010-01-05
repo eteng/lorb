@@ -143,12 +143,7 @@ private function matchRoute($request){
      (!isset($pdo_resullt[0])) or dox($pdo_resullt[0]);
      *
      */
-     
-
-}
-
-
-
+  }
 }
 
 ?>

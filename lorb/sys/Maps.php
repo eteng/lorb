@@ -27,17 +27,18 @@ class Maps{
        $this->x_maps =
        simplexml_load_file('config/site-track.xml');
    }
+   public function getModuleByName($str){
+       $comp =
+       $this->checkBasePath("{$this->tags['module']}[@name='{$str}']");
+      return $comp;
+   }
    private  function checkBasePath($Path){
        return $this->x_maps->xpath("/{$this->tags['root']}/".$Path);
    }
    private function checkRelPath($Path){
        return $this->x_maps->xptha($Path);
    }
-   public function getModuleByName($str){
-       $comp =
-       $this->checkBasePath("{$this->tags['module']}[@name='{$str}']");
-      return $comp;
-   }
+  
     
 }
 ?>

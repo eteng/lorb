@@ -19,7 +19,10 @@ include __SITE_PATH .'/sys/'.'registry.class.php';
 include __SITE_PATH .'/sys/'.'FrontController.php';
 
 /*** include the template class ***/
-include __SITE_PATH .'/sys/'.'template.class.php';
+//include __SITE_PATH .'/sys/'.'template.class.php';
+
+/*** include the template class ***/
+include __SITE_PATH .'/sys/'.'Template.php';
 
 /*** include the development class ***/
 include __SITE_PATH .'/sys/'.'Dev.php';
@@ -51,6 +54,7 @@ $registry->cfg = LorbConfig::getConfig();
 $registry->maps = Maps::getInstance();
 $registry->front = new FrontController($registry);
 /*** load up the template ***/
-$registry->tpl = new template($registry);
+//$registry->tpl = new template($registry);
+
 
 ?>

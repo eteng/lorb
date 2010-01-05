@@ -26,41 +26,31 @@ class FrontController {
     
     $request =  $this->parseRequest();
 	if (empty($request))
-		 $request = 'index';  //front
-	else
-	{   /*** get the parts of the request ***/
-		$parts = explode('/', $request);
-		$this->controller = strtolower($parts[0]);
-
-		if(isset( $parts[1]))
-			$this->process = $parts[1];
-        $modul = $this->reg->maps->getModuleByName($this->controller);			
-        if(!isBarren($modul)){
-		   // convert the simple match to array
-		   $this->url = $this->processMatch($modul);
-		   $this->dispatch();
-        }else{
-            // register Page Not found Event
-            echo "<h1>Page Error</h1> Page not found";
-        }      
-	}
-	if (isBarren($this->controller))
-	{
-		$this->controller = 'index';
-	}
-    $this->matchRoute($request);
+	     $request = 'index';  //front
+	else{
+      /*** get the parts of the request ***/
+      $parts = explode('/', $request);
+      $this->controller = strtolower($parts[0]);
+      if(isset( $parts[1]))
+         $this->process = $parts[1];
+	} 
 	/*** Get trailers after controller ***/
-	if (isBarren($this->process))
-	{
-		$this->process = 'index';
+	if(isBarren($this->process)){
+	  $this->process = 'index';
 	}
-	/*** set the file path ***/
-	//$this->file = $this->path .'/'. $this->controller . 'Controller.php';
+    $modul = $this->reg->maps->getModuleByName($this->controller);
+    if(!isBarren($modul)){
+      $this->url = $this->processMatch($modul);    
+    }else{
+      // register Page Not found Event
+      echo "<h1>Page Error</h1> Page not found";
+    }
+    $this->dispatch();
   }
-  /**this method get the requested url and returns the part related your base
-   * url which allows report for subdomain site
-   * @return String the request url relative to the baseURL of you system  
-   */
+/**this method get the requested url and returns the part related your base
+* url which allows report for subdomain site
+* @return String the request url relative to the baseURL of you system  
+*/
 private function parseRequest(){
      //getting the URL
     $requrl = $_SERVER['REQUEST_URI'];
@@ -75,11 +65,7 @@ private function parseRequest(){
     }
     return $requrl;
   }
- private function matchRoute($request){
-    
- }
- public function dispatch(){
-     
+ public function dispatch(){    
     if(isset ($this->url['class'])){
         $com_path = "sys/comp/".$this->url['class'].".php";
         $clasName = $this->url['class'];
@@ -90,27 +76,31 @@ private function parseRequest(){
 	if(file_exists($com_path)){
 	  include ($com_path);
     }else{
-     echo $com_path;
+         print($com_path);
 	 die('<h1>Controller Not Found</h1>');
     }
-	//declaring class
-	$contr = new $clasName;
-	if ($contr instanceof comp){
-		$contr->init();
-	}
-	//@TODO:what else could it be..
+    //declaring class
+    $contr = new $clasName($this->reg);
+    if ($contr instanceof comp){
+          $contr->init();
+          $contr->pushRoute();
+    }
+    //@TODO:what else could it be..
  }
- private function processMatch($map){
-    $line = array();
-	foreach($map as $k => $v){
-		if($v instanceof SimpleXMLElement){
-			$line = ArrayHelpers::XMLElemToArray( $v );			
-		}
-	}
-	return $line;
+private function processMatch($map){
+$line = array();
+    foreach($map as $k => $v){
+        if($v instanceof SimpleXMLElement){
+                $line = ArrayHelpers::XMLElemToArray( $v );
+        }
+    }
+    return $line;
  }
  public function start(){
     $this->HaltRequest();
+ }
+ public function getAct(){
+     return $this->process;
  }
 }
 ?>

@@ -7,27 +7,34 @@
         Purpose of the document follows help the user define the rout matches Here.
 -->
 <comps>
-    <nav name='blog'>
-        <error type='404' />
-    </nav>
-    <nav name='java' class=''>
-        <error type='406' />
-        <path id='Hq' method=''>
-            <get id='trigger' required='true' type='pattern' />
-            <get id='action' required='flase' type='string' />
-        </path>
-        <path id='register' method='register' >
-            <post id='mydata' reqired='true' />
-        </path>
-    </nav>
-	<nav name="tutorial" class='tutorial'>
-		<path id="php" method="" />
-		<path id="xml" method="" />
-		<path id="java" method="" >
-			<var id="page" type='float|string|int|number|pattern' />
-		</path>
-		<path id="cpp" method="" />
-		<path id="c" method="" />		
-	</nav>
+ <nav name='administrator' >
+    <error type='404' />
+ </nav>
+ <nav name='blog'>
+   <error type='404' />
+ </nav>
+ <nav name='java' class=''>
+   <error type='406' />
+   <path id='Hq' method=''>
+   <get id='trigger' required='true' type='pattern' />
+      <get id='action' required='flase' type='string' />
+   </path>
+   <path id='register' method='register' >
+      <post id='mydata' reqired='true' />
+   </path>
+ </nav>
+ <nav name="tutorial" class='tutorial'>
+    <path id="php" method="" />
+    <path id="xml" method="" />
+    <path id="java" method="" >
+        <var id="page" type='float|string|int|number|pattern' />
+    </path>
+    <path id="cpp" method="" />
+    <path id="c" method="" />
+ </nav>
+ <!--core component navigation -->
+ <nav name='mxfactory' class="resource">
+
+ </nav>
 </comps>
 
