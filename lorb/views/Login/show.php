@@ -16,12 +16,12 @@
 	background-color: red;
 	width: 80px;
 	padding: 4px;
-	/*display: none;*/
+	display: none;
   }
   .errorbox {
 	padding: 8px;
 	border: 1px solid #ff0000;
-	/*display: none;*/
+	display: none;
 }
 
 </style>  

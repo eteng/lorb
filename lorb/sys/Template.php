@@ -1,6 +1,6 @@
 <?php
 
-pitch("lorb.html.TemplateExcep");
+pitch("Dodeye.html.TemplateExcep");
 /**
  * the template class 
  * @author Eteng
@@ -22,7 +22,8 @@ class Template{
         $t_path = $rut.DIRECTORY_SEPARATOR.$_path;
         //validations here
         if(!file_exists($t_path)){
-           throw new TemplateExcep(TemplateExcep::FileNotFound);
+           throw new TemplateExcep(TemplateExcep::FileNotFound.$_path,
+                   TemplateExcep::NotFound);
         }
         return self::prcessTempFile($t_path,$vars);
     }

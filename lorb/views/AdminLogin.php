@@ -1,22 +1,20 @@
-<?php
-/* 
- * A temporary hold for the admin login page.
- */
-?>
+<html>
  <head>
     <title>Lorb Administration</title>
-    <link href="css/admin.css"  type="text/css" rel="stylesheet">
-    <link rel="shortcut icon" type="image/ico" href="../favicon.ico">
+    <link href="<?php $css('soulleave/css/admin');?>" type="text/css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/ico" href="<?php echo $favicon ?>" >
   </head>
   <body>
 	<center>
 	<div class="login">
-	<h2>Login Form</h2>
-	<form method="post" action="index.php">
-		<p>Username <input type="text" value="" /></p>
-		<p>Password	<input type="password" /></p>
-		<input class="submit" type="submit" value="Login" />
+	<h2>Administration Login</h2>
+        <form method="post" action="<?php echo $url_login ?>">
+            <p>Username <input type="text" value="" name="username" /></p>
+            <p>Password <input type="password" name="password" /></p>
+            <input class="submit" type="submit" value="Login" name="submit"/>
+        <input class="submit" type="reset" value="reset" />
 	</form>
 	</div>
 	</center>
   </body>
+</html>

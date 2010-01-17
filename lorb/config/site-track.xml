@@ -24,7 +24,7 @@
    </path>
  </nav>
  <nav name="tutorial" class='tutorial'>
-    <path id="php" method="" />
+    <path id="php" method="cherish" />
     <path id="xml" method="" />
     <path id="java" method="" >
         <var id="page" type='float|string|int|number|pattern' />
@@ -34,7 +34,7 @@
  </nav>
  <!--core component navigation -->
  <nav name='mxfactory' class="resource">
-
+    <path id="css" method="manage_css" />
  </nav>
 </comps>
 

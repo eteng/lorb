@@ -18,8 +18,6 @@ include __SITE_PATH .'/sys/'.'registry.class.php';
 /*** include the FrontController class ***/
 include __SITE_PATH .'/sys/'.'FrontController.php';
 
-/*** include the template class ***/
-//include __SITE_PATH .'/sys/'.'template.class.php';
 
 /*** include the template class ***/
 include __SITE_PATH .'/sys/'.'Template.php';
@@ -27,8 +25,10 @@ include __SITE_PATH .'/sys/'.'Template.php';
 /*** include the development class ***/
 include __SITE_PATH .'/sys/'.'Dev.php';
 
+/******include the  dodeye class ****/
+include __SITE_PATH.'/lib/Dodeye/core/'.'Dodeye.php';
 /*** include the path for the library utill ***/
-
+//todo:modle the autoload properly
 /*** auto load model classes ***/
  function __autoload($class_name) {
     $filename = strtolower($class_name).'.Model.php';
@@ -40,21 +40,23 @@ include __SITE_PATH .'/sys/'.'Dev.php';
     }
   include ($file);
 }
+/**A function used to load Dodeye library
+ * @param String $path of the Class to inport e.g <"Dodeye.util.basic">
+ * @return requirement to the path
+ */
 function pitch($path){
     $path = str_replace('.',"\\",$path);
 	$path = $path.".php";
     return require_once "{$path}";
 }
- /*** a new registry object ***/
- $registry = new Registry();
-
+/*** a new registry object ***/
+$registry = new Registry();
+$registry->dodeye = new Dodeye($registry);
 /**creating the database reg object ***/
 $registry->db = db::getDB(LorbConfig::getConfig()->getDefaultDB());
 $registry->cfg = LorbConfig::getConfig();
 $registry->maps = Maps::getInstance();
+Template::setBaseDir();
 $registry->front = new FrontController($registry);
-/*** load up the template ***/
-//$registry->tpl = new template($registry);
-
 
 ?>

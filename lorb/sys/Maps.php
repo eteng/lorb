@@ -22,7 +22,6 @@ class Maps{
         }
         return self::$__instance;
    }
-   //overriding interface
    public function init_vars(){
        $this->x_maps =
        simplexml_load_file('config/site-track.xml');
@@ -31,6 +30,11 @@ class Maps{
        $comp =
        $this->checkBasePath("{$this->tags['module']}[@name='{$str}']");
       return $comp;
+   }
+   public function getPathById($nav,$id){
+       $path =
+       $this->checkBasePath("{$this->tags['module']}[@name='{$nav}']/path[@id='{$id}']");
+       return $path;
    }
    private  function checkBasePath($Path){
        return $this->x_maps->xpath("/{$this->tags['root']}/".$Path);
