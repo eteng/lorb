@@ -1,0 +1,26 @@
+{ 
+  "menu": "Sample of menu", 
+  "commands": [ 
+      {
+          "title": "View the JSON file", 
+          "href":"http://www.scriptol.com/cms/dynamic-menu.json"
+      }, 
+      {
+          "title": "Building a CMS", 
+          "href": "http://www.scriptol.com/cms/building-a-cms.php"
+      }, 
+      {
+          "title": "Wysiwyg editor",
+          "href": "http://www.scriptol.com/cms/editor-demo.php"
+      }
+   ] ,
+  "blog": "Blog", 
+  "menu2": [ 
+      {
+          "title": "Some title", 
+          "href":"http://www.scriptol.com"
+      }
+   ] 
+
+}
+
