@@ -17,7 +17,6 @@ abstract class Comp{
     private $my;
     private $next = "";
     private $error = array(
-
     );
     //Error occurrable
     const ROUT_MISSING = 1;
@@ -31,7 +30,7 @@ abstract class Comp{
         $pax = "/^{$this->reg->front->getController()}\/(?P<cid>[a-zA-Z0-9_]*)\/(?P<lid>[a-zA-Z0-9_\/]*)/";
        
         preg_match($pax, $this->reg->front->getRequestUrl(),$myx);
-        // print_r($myx);
+        //print_r($myx);
         //@Todo:validations when empty
         if(!isBarren($myx)){
           $this->my =  $myx['cid'];
