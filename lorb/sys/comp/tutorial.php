@@ -8,8 +8,8 @@ require_once 'sys/comp.php';
 class tutorial extends Comp{
     function init(){}
     function index(){
-        echo "<h2>Welcome to Tutorialx</h2>";
-        echo "<p>It Good to see you once again</p>";
+//        echo "<h2>Welcome to Tutorialx</h2>";
+//        echo "<p>It Good to see you once again</p>";
     }
     function login(){
         Template::setBaseDir('views/tutorial');

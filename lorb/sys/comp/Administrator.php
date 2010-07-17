@@ -1,5 +1,6 @@
 <?php
 require_once 'sys/comp.php';
+pitch('Dodeye.core.Request');
 //require_once 'sys/Template.php';
 /* 
  * this is the administrator component...
@@ -12,8 +13,12 @@ class Administrator extends Comp{
     $user = $dodeye->login->requireLogin();
   }
   public function index(){
-       $data = file_get_contents('php://input');
-       print_r($data);
+      //$data = file_get_contents('php://input');
+      //print_r($data);
+       $x = new Request();
+       $p = $x->getParam('POST');
+       print_r($p);
+       //print_r();
        $favicon = $this->reg->cfg->config('domain')."/favicon.ico";
        Template::setBaseDir('views');
        Template::display('AdminLogin.php',array('favicon'=>$favicon,
@@ -24,5 +29,6 @@ class Administrator extends Comp{
        Template::setBaseDir('views/login');
        Template::display('show.php',array());
   }
+  public function test(){}
 }
 ?>

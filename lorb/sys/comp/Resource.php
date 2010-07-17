@@ -22,6 +22,17 @@ class Resource extends Comp{
       }
       $this->response->contenType = 'text/css';
       $this->response->content  = file_get_contents($filename);
+      $match;
+      preg_match_all("/url\(('?|\"?)([\w\d\/\.]*)('?|\"?)\)/",file_get_contents($filename),$match );
+      $path = $this->reg->cfg->config('domain').'/'.'sys/templates/dodeye/css';
+      $afun = function($match) use ($path){  return "url('$path". preg_replace("/('?|\"?)/",'',$match[1])."')"; };
+      $this->response->content = preg_replace_callback("%url\(([\w\d\/\.'\"]*)\)%",$afun,$this->response->content);
+
+
+     // print_r($match);
+      //exit;
+      
+    // $this->response->content = print_r($match,true);
       $this->response->ready(TRUE);
     }
     private function getAssetPath($name){
