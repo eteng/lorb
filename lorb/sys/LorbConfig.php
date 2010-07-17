@@ -26,19 +26,29 @@ class LorbConfig {
     public function appSetting($param){
         return strval($this->xconfig->config->application->$param);
     }
-    public function getDefaultDB(){
+    public function getDefaultDBConName(){
         $default = $this->xconfig->config->dbconnection['default'];
-        return $this->getDB($default);
+        return $default;
+    }
+    public function getDefaultDB(){
+        return $this->getDB($this->getDefaultDBConName());
     }
     public function getDB($constring){
         $flag = false;
         $params = array();
         //@TODO: Advance this concept using xpath technology to query thus saving memory ;
-         foreach($this->xconfig->config->dbconnection->db as $db){
+         foreach($this->xconfig->config->dbconnection->db as $db){    
             if(((string)$db['name'])==$constring){
-                $flag = true; 
-                foreach($db->children() as $dbparam => $dbval){
-                    $params[strval($dbparam)]  = strval($dbval);
+                $flag = true;
+                if($db->count()){
+                    foreach($db->children() as $dbparam => $dbval){
+                        $params[strval($dbparam)]  = strval($dbval);
+                    } 
+                }
+                else{
+                    foreach($db->attributes() as $dbparam => $dbval){
+                        $params[strval($dbparam)]  = strval($dbval);
+                    }
                 }
                 /** @TODO: could be remove incase of grouping db connection by type*/
                 $params['type'] = strval($db['type']);

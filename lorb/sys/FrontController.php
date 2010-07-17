@@ -1,7 +1,7 @@
 <?php
-
 pitch("Dodeye.util.basic"); //pitch in basic file.
 pitch("Dodeye.util.ArrayHelpers"); //pitch in the ArrayHelpers
+
 /**
  * Description of FrontController
  * @author eteng omini
@@ -30,8 +30,7 @@ class FrontController {
   public function  __construct($registry) {
         $this->reg = $registry;
   }
-  private function HaltRequest(){
-
+  private function Halt(){
     $request =  $this->parseRequest();
 	if (empty($request))
 	     $request = 'index';  //front
@@ -101,11 +100,10 @@ private function parseRequest(){
           $contr->pre_init();
           $contr->init();
           $contr->pushRoute();
-
-
           //killit 
     }
     //@TODO:what else could it be..
+    $this->reaction();
  }
 private function processMatch($map){
     $line = array();
@@ -117,7 +115,7 @@ private function processMatch($map){
     return $line;
  }
  public function start(){
-    $this->HaltRequest();
+    $this->Halt();
  }
  public function getAct(){
      return $this->process;
@@ -134,5 +132,18 @@ private function processMatch($map){
  function getController(){
      return $this->controller;
  }
+
+ public function reaction(){
+   /* Template::setBaseDir('sys/templates/');
+    $tmp_name = 'dodeye';
+    Template::display('dodeye/index.php',array(
+        'tmpname'=>$tmp_name,
+        'css'=>function($csls)use($tmp_name)
+        {print "http://localhost/lorb/lorb/mxfactory/css/{$tmp_name}/".$csls;}));
+    * 
+    */
+
+ }
+
 }
 ?>

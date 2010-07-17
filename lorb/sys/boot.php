@@ -1,7 +1,7 @@
 <?php
 
 /****include the db model class****/
-include __SITE_PATH.'/model/'.'db.class.php';
+include __SITE_PATH.'/lib/Dodeye/core/db/'.'DB.php';
 
 /*** include the config class ***/
 include __SITE_PATH .'/sys/'.'LorbConfig.php';
@@ -17,7 +17,6 @@ include __SITE_PATH .'/sys/'.'registry.class.php';
 
 /*** include the FrontController class ***/
 include __SITE_PATH .'/sys/'.'FrontController.php';
-
 
 /*** include the template class ***/
 include __SITE_PATH .'/sys/'.'Template.php';
@@ -53,7 +52,7 @@ function pitch($path){
 $registry = new Registry();
 $registry->dodeye = new Dodeye($registry);
 /**creating the database reg object ***/
-$registry->db = db::getDB(LorbConfig::getConfig()->getDefaultDB());
+$registry->db = DB::getDB(LorbConfig::getConfig()->getDefaultDB());
 $registry->cfg = LorbConfig::getConfig();
 $registry->maps = Maps::getInstance();
 Template::setBaseDir();
