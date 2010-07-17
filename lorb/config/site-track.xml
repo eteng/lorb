@@ -36,5 +36,9 @@
  <nav name='mxfactory' class="resource">
     <path id="css" method="manage_css" />
  </nav>
+ <nav name='restserver' class="restserver" >
+    <path id="ws" method="webserviceHandler" />
+    <path id="ds" method="dataserviceHandler" />
+ </nav>
 </comps>
 

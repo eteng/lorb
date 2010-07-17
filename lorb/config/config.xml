@@ -6,13 +6,13 @@
         <serverRoot></serverRoot>
         <subdomain></subdomain>
     </application>
-    <dbconnection default='off1'>
+    <dbconnection default='nashdb'>
       <db name="off1" type="mysql">
-          <host>localhost</host>
-          <port />
+          <host>localhost</host>  <port />
           <username>root</username>
           <dbname>lorb</dbname>
       </db>
+      <db name='nashdb' type='mysql' host='10.11.25.106' port='3306' username='root' dbname='timekeeper' />
       <db name='hm1' type='mysql' host='localhost' port='3308' username='root' dbname='lorb' />
       <db name='hm2' type='mysql' host='localhost' port='10061' username='root' dbname='lorb' password='eteng'/>
     </dbconnection>
