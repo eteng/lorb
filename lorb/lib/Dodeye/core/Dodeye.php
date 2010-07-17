@@ -1,5 +1,5 @@
 <?php
-require_once 'User.php';
+require_once 'user/User.php';
 require_once 'Login.php';
 /**
  *this is the core of the system
@@ -18,6 +18,10 @@ class Dodeye {
     }
     function  __get($name) {
         return $this->addon[$name];
+    }
+    function registerUser(){
+        $x = new PDO();
+        
     }
 }
 ?>
